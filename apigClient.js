@@ -118,6 +118,78 @@ apigClientFactory.newClient = function (config) {
         return apiGatewayClient.makeRequest(rootOptionsRequest, authType, additionalParams, config.apiKey);
     };
     
+    
+    apigClient.instancesGet = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var instancesGetRequest = {
+            verb: 'get'.toUpperCase(),
+            path: pathComponent + uritemplate('/instances').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(instancesGetRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.instancesOptions = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var instancesOptionsRequest = {
+            verb: 'options'.toUpperCase(),
+            path: pathComponent + uritemplate('/instances').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(instancesOptionsRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.securitygroupsGet = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var securitygroupsGetRequest = {
+            verb: 'get'.toUpperCase(),
+            path: pathComponent + uritemplate('/securitygroups').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(securitygroupsGetRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.securitygroupsOptions = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var securitygroupsOptionsRequest = {
+            verb: 'options'.toUpperCase(),
+            path: pathComponent + uritemplate('/securitygroups').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(securitygroupsOptionsRequest, authType, additionalParams, config.apiKey);
+    };
+    
 
     return apigClient;
 };

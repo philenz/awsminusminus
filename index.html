@@ -27,10 +27,23 @@
           apigClient.rootGet().then(result => {
               document.getElementById('root-get').innerHTML = JSON.stringify(result.data);
           });
+
+          // @app.route('/instances')
+          apigClient.instancesGet().then(result => {
+              document.getElementById('instances-get').innerHTML = JSON.stringify(result.data);
+          });
+
+          // @app.route('/securitygroups')
+          apigClient.securitygroupsGet().then(result => {
+              document.getElementById('securitygroups-get').innerHTML = JSON.stringify(result.data);
+          });
+
         </script>
 
     </head>
     <body>
-        <div><h5>result of rootGet()</h5><pre id="root-get"></pre></div>
+        <div><h5>Hello</h5><pre id="root-get"></pre></div>
+        <div><h5>Instances</h5><pre id="instances-get"></pre></div>
+        <div><h5>Security Groups</h5><pre id="securitygroups-get"></pre></div>
     </body>
 </html>
