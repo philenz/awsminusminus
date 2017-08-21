@@ -155,6 +155,42 @@ apigClientFactory.newClient = function (config) {
     };
     
     
+    apigClient.securitygroupSecurityGroupIdGet = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var securitygroupSecurityGroupIdGetRequest = {
+            verb: 'get'.toUpperCase(),
+            path: pathComponent + uritemplate('/securitygroup/{security_group_id}').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(securitygroupSecurityGroupIdGetRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.securitygroupSecurityGroupIdOptions = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var securitygroupSecurityGroupIdOptionsRequest = {
+            verb: 'options'.toUpperCase(),
+            path: pathComponent + uritemplate('/securitygroup/{security_group_id}').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(securitygroupSecurityGroupIdOptionsRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
     apigClient.securitygroupsGet = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         
