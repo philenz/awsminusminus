@@ -4,5 +4,11 @@ var apigClient = apigClientFactory.newClient();
 
 // @app.route('/securitygroups')
 apigClient.securitygroupsGet().then(result => {
-    document.getElementById('securitygroups-get').innerHTML = JSON.stringify(result.data);
+
+    var rowHTML = '';
+    $.each(result.data["security_groups"], function() {
+        rowHTML += '<tr><td>' + this + '</td><td></td><td></td><td></td></tr>';
+    });
+    $('#securitygroups').append(rowHTML);
+
 });
