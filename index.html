@@ -2,8 +2,12 @@
 <html lang="en">
     <head>
         <title>AWS--</title>
+
+        <!-- From Chalice -->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- From Chalice -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
         <script type="text/javascript" src="lib/axios/dist/axios.standalone.js"></script>
         <script type="text/javascript" src="lib/CryptoJS/rollups/hmac-sha256.js"></script>
@@ -15,35 +19,37 @@
         <script type="text/javascript" src="lib/apiGatewayCore/apiGatewayClient.js"></script>
         <script type="text/javascript" src="lib/apiGatewayCore/simpleHttpClient.js"></script>
         <script type="text/javascript" src="lib/apiGatewayCore/utils.js"></script>
+
+        <!-- jQuery and UI -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css">
+
+        <!-- From Chalice -->
         <script type="text/javascript" src="apigClient.js"></script>
 
-
-        <script type="text/javascript">
-          // Below are examples of how the javascript SDK methods
-          // correspond to chalice @app.routes()
-          var apigClient = apigClientFactory.newClient();
-
-          // @app.route('/')
-          apigClient.rootGet().then(result => {
-              document.getElementById('root-get').innerHTML = JSON.stringify(result.data);
-          });
-
-          // @app.route('/instances')
-          apigClient.instancesGet().then(result => {
-              document.getElementById('instances-get').innerHTML = JSON.stringify(result.data);
-          });
-
-          // @app.route('/securitygroups')
-          apigClient.securitygroupsGet().then(result => {
-              document.getElementById('securitygroups-get').innerHTML = JSON.stringify(result.data);
-          });
-
-        </script>
+        <!-- javascript/css for this app -->
+        <script src="awsminusminus.js"></script>
+        <link rel="stylesheet" href="awsminusminus.css" />
 
     </head>
+
     <body>
-        <div><h5>Hello</h5><pre id="root-get"></pre></div>
-        <div><h5>Instances</h5><pre id="instances-get"></pre></div>
-        <div><h5>Security Groups</h5><pre id="securitygroups-get"></pre></div>
+        <h3 align="center">Gallagher Security Groups</h3>
+        <table border="1" align="center">
+            <tr>
+                <th align="left">Group Name</th>
+                <th align="left">VPC</th>
+                <th align="left">Description</th>
+                <th align="left">Ingress</th>
+            </tr>
+            <tr>
+                <td><pre id="securitygroups-get"></pre></td>
+                <td/>
+                <td/>
+                <td/>
+            </tr>
+        </table>
     </body>
+
 </html>
