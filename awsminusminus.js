@@ -1,8 +1,5 @@
-// Below are examples of how the javascript SDK methods
-// correspond to chalice @app.routes()
 var apigClient = apigClientFactory.newClient();
 
-// @app.route('/securitygroups')
 apigClient.securitygroupsGet().then(result => {
 
     var rowHTML = '';
@@ -11,4 +8,9 @@ apigClient.securitygroupsGet().then(result => {
     });
     $('#securitygroups').append(rowHTML);
 
+});
+
+var params = {security_group_id: 'sg-7a93ee1d'};
+apigClient.securitygroupSecurityGroupIdGet(params).then(result => {
+        alert(JSON.stringify(result.data));
 });

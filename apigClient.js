@@ -157,18 +157,17 @@ apigClientFactory.newClient = function (config) {
     
     apigClient.securitygroupSecurityGroupIdGet = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
-        
-        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+
+        apiGateway.core.utils.assertParametersDefined(params, ['security_group_id'], ['body']);
         
         var securitygroupSecurityGroupIdGetRequest = {
             verb: 'get'.toUpperCase(),
-            path: pathComponent + uritemplate('/securitygroup/{security_group_id}').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            path: pathComponent + uritemplate('/securitygroup/{security_group_id}').expand(apiGateway.core.utils.parseParametersToObject(params, ['security_group_id'])),
             headers: apiGateway.core.utils.parseParametersToObject(params, []),
             queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
             body: body
         };
-        
-        
+
         return apiGatewayClient.makeRequest(securitygroupSecurityGroupIdGetRequest, authType, additionalParams, config.apiKey);
     };
     
@@ -176,11 +175,11 @@ apigClientFactory.newClient = function (config) {
     apigClient.securitygroupSecurityGroupIdOptions = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         
-        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        apiGateway.core.utils.assertParametersDefined(params, ['security_group_id'], ['body']);
         
         var securitygroupSecurityGroupIdOptionsRequest = {
             verb: 'options'.toUpperCase(),
-            path: pathComponent + uritemplate('/securitygroup/{security_group_id}').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            path: pathComponent + uritemplate('/securitygroup/{security_group_id}').expand(apiGateway.core.utils.parseParametersToObject(params, ['security_group_id'])),
             headers: apiGateway.core.utils.parseParametersToObject(params, []),
             queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
             body: body
