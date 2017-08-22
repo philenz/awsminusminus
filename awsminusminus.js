@@ -1,16 +1,25 @@
 var apigClient = apigClientFactory.newClient();
 
-apigClient.securitygroupsGet().then(result => {
+apigClient.securitygroupsGet().then(sgs => {
 
-    var rowHTML = '';
-    $.each(result.data["security_groups"], function() {
-        rowHTML += '<tr><td>' + this + '</td><td></td><td></td><td></td></tr>';
+    $.each(sgs.data["security_groups"], function() {
+
+        var rowHTML = '';
+        var sg_id = this;
+        var params = {security_group_id: sg_id};
+
+        apigClient.securitygroupSecurityGroupIdGet(params).then(sg => {
+
+            rowHTML += '<tr>';
+            rowHTML += '<td>' + sg.data["name"] + '</td>';
+            rowHTML += '<td>' + sg.data["vpc"] + '</td>';
+            rowHTML += '<td>' + sg.data["description"] + '</td>';
+            rowHTML += '<td></td>';
+            rowHTML += '</tr>';
+
+            $('#securitygroups').append(rowHTML);
+        });
+
     });
-    $('#securitygroups').append(rowHTML);
 
-});
-
-var params = {security_group_id: 'sg-7a93ee1d'};
-apigClient.securitygroupSecurityGroupIdGet(params).then(result => {
-        alert(JSON.stringify(result.data));
 });
