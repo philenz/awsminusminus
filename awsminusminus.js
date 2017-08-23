@@ -4,21 +4,14 @@ apigClient.securitygroupsGet().then(sgs => {
 
     $.each(sgs.data["security_groups"], function() {
 
-        var rowHTML = '';
-        var sg_id = this;
-        var params = {security_group_id: sg_id};
+        rowHTML = '<tr>';
+        rowHTML += '<td>' + this["name"] + '</td>';
+        rowHTML += '<td>' + this["vpc"] + '</td>';
+        rowHTML += '<td>' + this["description"] + '</td>';
+        rowHTML += '<td></td>';
+        rowHTML += '</tr>';
 
-        apigClient.securitygroupSecurityGroupIdGet(params).then(sg => {
-
-            rowHTML += '<tr>';
-            rowHTML += '<td>' + sg.data["name"] + '</td>';
-            rowHTML += '<td>' + sg.data["vpc"] + '</td>';
-            rowHTML += '<td>' + sg.data["description"] + '</td>';
-            rowHTML += '<td></td>';
-            rowHTML += '</tr>';
-
-            $('#securitygroups').append(rowHTML);
-        });
+        $('#securitygroups').append(rowHTML);
 
     });
 
