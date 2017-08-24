@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>AWS++</title>
+
+        <!-- From Chalice -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- From Chalice -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+        <script type="text/javascript" src="lib/axios/dist/axios.standalone.js"></script>
+        <script type="text/javascript" src="lib/CryptoJS/rollups/hmac-sha256.js"></script>
+        <script type="text/javascript" src="lib/CryptoJS/rollups/sha256.js"></script>
+        <script type="text/javascript" src="lib/CryptoJS/components/hmac.js"></script>
+        <script type="text/javascript" src="lib/CryptoJS/components/enc-base64.js"></script>
+        <script type="text/javascript" src="lib/url-template/url-template.js"></script>
+        <script type="text/javascript" src="lib/apiGatewayCore/sigV4Client.js"></script>
+        <script type="text/javascript" src="lib/apiGatewayCore/apiGatewayClient.js"></script>
+        <script type="text/javascript" src="lib/apiGatewayCore/simpleHttpClient.js"></script>
+        <script type="text/javascript" src="lib/apiGatewayCore/utils.js"></script>
+
+        <!-- jQuery and UI -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css">
+
+        <!-- From Chalice -->
+        <script type="text/javascript" src="apigClient.js"></script>
+
+        <!-- javascript/css for this app -->
+        <script src="access_keys.js"></script>
+        <link rel="stylesheet" href="awsminusminus.css" />
+
+    </head>
+
+    <body>
+
+        <h3 align="center">Gallagher Access Keys</h3>
+
+        <table border="1" align="center" id="accesskeys">
+            <tr>
+                <th align="left">Id</th>
+                <th align="left">Name</th>
+                <th align="left">Access Key</th>
+                <th align="left">Key Status</th>
+                <th align="left">Key Age</th>
+            </tr>
+        </table>
+
+    </body>
+
+</html>
