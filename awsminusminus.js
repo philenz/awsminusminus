@@ -1,17 +1,21 @@
-var apigClient = apigClientFactory.newClient();
+$(document).ready(function() {
 
-apigClient.securitygroupsGet().then(sgs => {
+    var apigClient = apigClientFactory.newClient();
 
-    $.each(sgs.data["security_groups"], function() {
+    apigClient.securitygroupsGet().then(sgs => {
 
-        rowHTML = '<tr>';
-        rowHTML += '<td>' + this["name"] + '</td>';
-        rowHTML += '<td>' + this["vpc"] + '</td>';
-        rowHTML += '<td>' + this["description"] + '</td>';
-        rowHTML += '<td></td>';
-        rowHTML += '</tr>';
+        $.each(sgs.data["security_groups"], function() {
 
-        $('#securitygroups').append(rowHTML);
+            rowHTML = '<tr>';
+            rowHTML += '<td>' + this["name"] + '</td>';
+            rowHTML += '<td>' + this["vpc"] + '</td>';
+            rowHTML += '<td>' + this["description"] + '</td>';
+            rowHTML += '<td></td>';
+            rowHTML += '</tr>';
+
+            $('#securitygroups').append(rowHTML);
+
+        });
 
     });
 
