@@ -2,7 +2,11 @@ $(document).ready(function() {
 
     var apigClient = apigClientFactory.newClient();
 
+    $("#waitMessage").show();
+
     apigClient.securitygroupsGet().then(sgs => {
+
+        $("#waitMessage").hide();
 
         $.each(sgs.data["security_groups"], function() {
 
