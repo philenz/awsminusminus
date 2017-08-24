@@ -4,9 +4,19 @@ webbucket=awsplusplus.security.gallagher.io
 
 aws s3 cp lib s3://$webbucket/lib/ --recursive
 
-aws s3 cp index.html s3://$webbucket/
-aws s3 cp apigClient.js s3://$webbucket/
-aws s3 cp awsminusminus.js s3://$webbucket/
-aws s3 cp awsminusminus.css s3://$webbucket/
+for html in *.html
+do
+    aws s3 cp $html s3://$webbucket/
+done
+
+for css in *.css
+do
+    aws s3 cp $css s3://$webbucket/
+done
+
+for js in *.js
+do
+    aws s3 cp $js s3://$webbucket/
+done
 
 exit 0
