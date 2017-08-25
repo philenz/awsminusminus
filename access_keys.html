@@ -25,6 +25,10 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css">
 
+        <!-- DataTables -->
+        <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+        <link rel="stylesheet" href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+
         <!-- From Chalice -->
         <script type="text/javascript" src="apigClient.js"></script>
 
@@ -40,14 +44,25 @@
 
         <div id="waitMessage" align="center" style="display: none">Please wait; retrieving users...</div>
 
-        <table border="1" align="center" id="accesskeys">
-            <tr>
-                <th align="left">Id</th>
-                <th align="left">Name</th>
-                <th align="left">Access Key</th>
-                <th align="left">Key Status</th>
-                <th align="left">Key Age</th>
-            </tr>
+        <table id="accesskeys" class="display" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Access Key</th>
+                    <th>Key Status</th>
+                    <th>Key Age</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Access Key</th>
+                    <th>Key Status</th>
+                    <th>Key Age</th>
+                </tr>
+            </tfoot>
         </table>
 
     </body>
