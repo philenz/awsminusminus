@@ -25,6 +25,10 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css">
 
+        <!-- DataTables -->
+        <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+        <link rel="stylesheet" href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+
         <!-- From Chalice -->
         <script type="text/javascript" src="apigClient.js"></script>
 
@@ -40,13 +44,21 @@
 
         <div id="waitMessage" align="center" style="display: none">Please wait; retrieving security groups...</div>
 
-        <table border="1" align="center" id="securitygroups">
-            <tr>
-                <th align="left">Group Name</th>
-                <th align="left">VPC</th>
-                <th align="left">Description</th>
-                <th align="left">Ingress</th>
-            </tr>
+        <table id="securitygroups" class="display" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>Group Name</th>
+                    <th>VPC</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>Group Name</th>
+                    <th>VPC</th>
+                    <th>Description</th>
+                </tr>
+            </tfoot>
         </table>
 
     </body>

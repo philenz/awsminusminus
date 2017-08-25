@@ -8,19 +8,13 @@ $(document).ready(function() {
 
         $("#waitMessage").hide();
 
-        $.each(sgs.data["security_groups"], function() {
-
-            rowHTML = '<tr>';
-            rowHTML += '<td>' + this["name"] + '</td>';
-            rowHTML += '<td>' + this["vpc"] + '</td>';
-            rowHTML += '<td>' + this["description"] + '</td>';
-            rowHTML += '<td></td>';
-            rowHTML += '</tr>';
-
-            $('#securitygroups').append(rowHTML);
-
+        $('#securitygroups').DataTable({
+            "data": sgs.data["security_groups"],
+            "columns": [
+                { "data": "name" },
+                { "data": "vpc" },
+                { "data": "description" }
+            ]
         });
-
     });
-
 });
