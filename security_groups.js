@@ -10,6 +10,7 @@ $(document).ready(function() {
 
         $('#securitygroups').DataTable({
             "data": sgs.data["security_groups"],
+            "pageLength": 20,
             "columns": [
                 { "data": "name" },
                 { "data": "vpc" },

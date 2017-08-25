@@ -10,8 +10,8 @@ $(document).ready(function() {
 
         $('#accesskeys').DataTable({
             "data": users.data["userskeys"],
+            "pageLength": 20,
             "columns": [
-                { "data": "id" },
                 { "data": "name" },
                 { "data": "key" },
                 { "data": "key_status" },
