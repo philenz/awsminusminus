@@ -10,11 +10,6 @@ do
     aws s3 cp $html s3://$webbucket/
 done
 
-for css in *.css
-do
-    aws s3 cp $css s3://$webbucket/
-done
-
 for js in *.js
 do
     aws s3 cp $js s3://$webbucket/
