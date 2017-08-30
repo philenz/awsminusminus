@@ -24,3 +24,9 @@
 * Create an App client --> No secret key; enable ADMIN_NO_SRP_AUTH
 * In App client settings, enable Cognito User Pool identity provider
 * Create an Identity Pool --> set up a Cognito Authentication provider
+
+##### ToDo
+
+* Login page, then remove user and password from config
+* Create new user page... must be a decent example somewhere!
+* Does CORS not work with cognito authentication??? 
