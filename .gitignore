@@ -55,3 +55,6 @@ crashlytics-build.properties
 ccp-config-app/
 ccp-controller-app/
 commandcentre-cloud-app/
+
+# This app
+config.json
