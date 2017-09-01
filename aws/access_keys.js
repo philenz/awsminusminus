@@ -4,12 +4,12 @@ $(document).ready(function() {
 
     $("#waitMessage").show();
 
-    apigClient.userskeysGet().then(users => {
+    apigClient.userskeysGet().then( function(response) {
 
         $("#waitMessage").hide();
 
         $('#accesskeys').DataTable({
-            "data": users.data["userskeys"],
+            "data": response.data["userskeys"],
             "pageLength": 20,
             "columns": [
                 { "data": "name" },

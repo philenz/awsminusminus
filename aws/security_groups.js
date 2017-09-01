@@ -58,12 +58,12 @@ $(document).ready(function() {
 
                     $("#waitMessage").show();
 
-                    apigClient.securitygroupsGet().then(sgs => {
+                    apigClient.securitygroupsGet().then(function(response) {
 
                         $("#waitMessage").hide();
 
                         $('#securitygroups').DataTable({
-                            "data": sgs.data["security_groups"],
+                            "data": response.data["security_groups"],
                             "pageLength": 20,
                             "columns": [
                                 { "data": "name" },
