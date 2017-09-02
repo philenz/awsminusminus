@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+    var config = Config.getInstance();
+
     // authenticate against cognito...
     var poolData = {
         UserPoolId: config.userPoolId,
