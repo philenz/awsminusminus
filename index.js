@@ -1,6 +1,8 @@
 $(document).ready(function() {
 
-    // TODO: Add login logic
+    $( "#authenticate" ).button().click( function( event ) {
+        alert("login...");
+    });
 
 });
 
