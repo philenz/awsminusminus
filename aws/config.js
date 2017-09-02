@@ -7,6 +7,7 @@ var config = (function() {
     var region = null;
     var userName = null;
     var password = null;
+    var awsPlusPlus = null;
 
     $.ajax({
         'async': false,
@@ -21,6 +22,7 @@ var config = (function() {
             region = data["Region"];
             userName = data["UserName"];
             password = data["Password"];
+            awsPlusPlus = data["AwsPlusPlus"];
         }
     });
 
@@ -31,7 +33,8 @@ var config = (function() {
         identityProvider: identityProvider,
         region: region,
         userName: userName,
-        password: password
+        password: password,
+        awsPlusPlus: awsPlusPlus
     };
 
 })();

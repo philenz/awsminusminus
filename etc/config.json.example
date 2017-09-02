@@ -1,9 +1,8 @@
 {
   "UserPoolId": "ap-southeast-XXXXXXXXXXX",
   "ClientId": "xxxxxxxxxxxxxxxxxxxxxxxxxx",
-  "IdentityPoolId": "ap-southeast-2:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx",
-  "IdentityProvider": "cognito-idp.ap-southeast-2.amazonaws.com/ap-southeast-XXXXXXXXXXX",
   "Region": "ap-southeast-2",
   "UserName": "philenz",
-  "Password": "XXXXXXXX"
+  "Password": "XXXXXXXX",
+  "AwsPlusPlus": "https://apigatewayurl/api"
 }

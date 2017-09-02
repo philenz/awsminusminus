@@ -21,108 +21,42 @@ $(document).ready(function() {
 
         onSuccess: function (result) {
 
-            AWS.config.region = config.region;
+            $("#waitMessage").show();
 
-            // can't use config.identityProvider below... why???
+            var awsHeaders = {};
+            awsHeaders['Authorization'] = result.getIdToken().getJwtToken();
 
-            AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-                IdentityPoolId: config.identityPoolId,
-                Logins: {
-                    "cognito-idp.ap-southeast-2.amazonaws.com/ap-southeast-2_Gbjvx5EuE": result.getIdToken().getJwtToken()
-                }
-            });
+            var url = config.awsPlusPlus + '/securitygroups';
 
-            AWS.config.credentials.get(function (err) {
+            $.ajax({
+                url: url,
+                type: 'GET',
+                dataType: 'json',
+                headers: awsHeaders,
+                crossDomain: true,
+                contentType: 'application/json',
+                success: function (data) {
 
-                if(err) {
-                    console.log('Authentication Error: ' + err);
-                } else {
+                    $("#waitMessage").hide();
 
-                    var credentials = AWS.config.credentials;
-
-                    /*
-                    console.log(credentials.accessKeyId);
-                    console.log(credentials.secretAccessKey);
-                    console.log(credentials.identityId);
-                    console.log(credentials.sessionToken);
-                    */
-
-                    var apigClient = apigClientFactory.newClient(
-                        {
-                            accessKeyId: credentials.accessKeyId,
-                            secretAccessKey: credentials.secretAccessKey,
-                            sessionToken: credentials.sessionToken,
-                            region: config.region
-                        }
-                    );
-
-                    $("#waitMessage").show();
-
-                    apigClient.securitygroupsGet().then(function(response) {
-
-                        $("#waitMessage").hide();
-
-                        $('#securitygroups').DataTable({
-                            "data": response.data["security_groups"],
-                            "pageLength": 20,
-                            "columns": [
-                                { "data": "name" },
-                                { "data": "vpc" },
-                                { "data": "description" }
-                            ]
-                        });
+                    $('#securitygroups').DataTable({
+                        "data": data["security_groups"],
+                        "pageLength": 20,
+                        "columns": [
+                            { "data": "name" },
+                            { "data": "vpc" },
+                            { "data": "description" }
+                        ]
                     });
-
+                },
+                error: function (e) {
+                    alert("Error getting security groups: " + JSON.stringify(e));
                 }
             });
-
-
         },
-
-        onFailure: function(err) {
-            alert(err);
+        onFailure: function(e) {
+            alert("Error authenticating user: " + JSON.stringify(e));
         }
-
-
     });
-
-    // Code to add a user...
-
-    /*
-    var attributeList = [];
-
-    var dataEmail = {
-        Name : 'email',
-        Value : 'bob@x.com'
-    };
-    var dataPhoneNumber = {
-        Name : 'phone_number',
-        Value : '+6491234567'
-    };
-    var dataGivenName = {
-        Name : 'given_name',
-        Value : 'Bob'
-    };
-    var attributeEmail =
-        new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataEmail);
-    var attributePhoneNumber =
-        new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataPhoneNumber);
-    var attributeGivenName =
-        new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataGivenName);
-
-    attributeList.push(attributeEmail);
-    attributeList.push(attributePhoneNumber);
-    attributeList.push(attributeGivenName);
-
-    var cognitoUser;
-    userPool.signUp('bobby', 'helloB0b', attributeList, null, function(err, result){
-        if (err) {
-            alert(err);
-            return;
-        }
-        cognitoUser = result.user;
-        alert('user name is ' + cognitoUser.getUsername());
-    });
-    */
 
 });
