@@ -41,7 +41,7 @@ $(document).ready(function() {
 
                     $('#securitygroups').DataTable({
                         "data": data["security_groups"],
-                        "pageLength": 20,
+                        //"pageLength": 20,
                         "columns": [
                             { "data": "name" },
                             { "data": "vpc" },
