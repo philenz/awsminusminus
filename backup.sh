@@ -2,7 +2,7 @@
 
 # Create a backup of files listed to Google Drive
 
-files=( 'etc/config.json' )
+files=( 'config/config.json' )
 
 skicka mkdir /Source/awsminusminus
 
