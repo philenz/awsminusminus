@@ -1,5 +1,14 @@
 $(document).ready(function() {
 
+    if (!sessionStorage.idToken) {
+
+        $( "a" ).click(function( e ) {
+            event.preventDefault();
+            alert ("You need to login first")
+        });
+
+    }
+
     $( "#authenticate" ).button( {
 
         disabled: sessionStorage.idToken ? true : false
@@ -16,9 +25,10 @@ $(document).ready(function() {
                 var user = cognito.cognitoUser.getUsername();
 
                 console.log("authenticated: " + user);
-                console.log(     "id token: " + id);
 
                 $( "#authenticate" ).button("disable");
+
+                $( "a" ).off('click');
 
                 sessionStorage.idToken = id;
 
