@@ -1,6 +1,10 @@
 $(document).ready(function() {
 
-    $( "#authenticate" ).button().click( function( event ) {
+    $( "#authenticate" ).button( {
+
+        disabled: sessionStorage.idToken ? true : false
+
+    }).click( function( event ) {
 
         var cognito = Cognito.getInstance();
 
