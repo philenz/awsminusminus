@@ -16,7 +16,7 @@ var Config = (function() {
         $.ajax({
             'async': false,
             'global': false,
-            'url': "../etc/config.json",
+            'url': "config/config.json",
             'dataType': "json",
             'success': function (data) {
                 userPoolId = data["UserPoolId"];
@@ -27,6 +27,7 @@ var Config = (function() {
                 userName = data["UserName"];
                 password = data["Password"];
                 awsPlusPlus = data["AwsPlusPlus"];
+                sessionStorage.awsPlusPlus = data["AwsPlusPlus"];
             }
         });
 
