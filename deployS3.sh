@@ -3,7 +3,7 @@
 webbucket=awsplusplus.security.gallagher.io
 
 aws s3 cp aws s3://$webbucket/aws/ --recursive
-aws s3 cp etc s3://$webbucket/config/ --recursive
+aws s3 cp config s3://$webbucket/config/ --recursive
 
 for html in *.html
 do
