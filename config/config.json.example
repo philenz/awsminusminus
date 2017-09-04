@@ -1,8 +1,0 @@
-{
-  "UserPoolId": "ap-southeast-XXXXXXXXXXX",
-  "ClientId": "xxxxxxxxxxxxxxxxxxxxxxxxxx",
-  "Region": "ap-southeast-2",
-  "UserName": "philenz",
-  "Password": "XXXXXXXX",
-  "AwsPlusPlus": "https://apigatewayurl/api"
-}

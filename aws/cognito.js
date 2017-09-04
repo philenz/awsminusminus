@@ -2,7 +2,9 @@ var Cognito = (function() {
 
     var instance;
 
-    function createInstance() {
+    function createInstance(name, password) {
+
+        alert("login: " + name + "/" + password);
 
         var config = Config.getInstance();
 
@@ -12,12 +14,12 @@ var Cognito = (function() {
         };
         var userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool(poolData);
         var userData = {
-            Username: config.userName,
+            Username: name,
             Pool: userPool
         };
         var authenticationData = {
-            Username: config.userName,
-            Password: config.password
+            Username: name,
+            Password: password
         };
         var authenticationDetails = new AWSCognito.CognitoIdentityServiceProvider.AuthenticationDetails(authenticationData);
         var cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser(userData);
@@ -31,9 +33,11 @@ var Cognito = (function() {
     }
 
     return {
-        getInstance: function () {
+        getInstance: function (name, password) {
+
             if (!instance) {
-                instance = createInstance();
+                alert("createInstance");
+                instance = createInstance(name, password);
             }
             return instance;
         }
