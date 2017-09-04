@@ -1,10 +1,6 @@
 var Cognito = (function() {
 
-    var instance;
-
-    function createInstance(name, password) {
-
-        alert("login: " + name + "/" + password);
+    function initialise(name, password) {
 
         var config = Config.getInstance();
 
@@ -25,7 +21,6 @@ var Cognito = (function() {
         var cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser(userData);
 
         return {
-            poolData: poolData,
             cognitoUser: cognitoUser,
             authenticationDetails: authenticationDetails
         }
@@ -33,15 +28,8 @@ var Cognito = (function() {
     }
 
     return {
-        getInstance: function (name, password) {
-
-            if (!instance) {
-                alert("createInstance");
-                instance = createInstance(name, password);
-            }
-            return instance;
-        }
-    };
+        initialise: initialise
+    }
 
 })();
 

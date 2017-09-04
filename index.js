@@ -44,7 +44,7 @@ $(document).ready(function() {
 
         if (valid) {
 
-            var cognito = Cognito.getInstance(name.val(), password.val());
+            var cognito = Cognito.initialise(name.val(), password.val());
 
             cognito.cognitoUser.authenticateUser(cognito.authenticationDetails, {
 
@@ -66,7 +66,7 @@ $(document).ready(function() {
 
                 },
                 onFailure: function (result) {
-                    tips.text( "Login failed!" );
+                    updateTips( "Login failed!" );
                     valid = false;
                 }
             });
