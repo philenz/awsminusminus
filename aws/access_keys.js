@@ -2,10 +2,10 @@ $(document).ready(function() {
 
     $("#waitMessage").show();
 
-    var awsHeaders = {};
+    let awsHeaders = {};
     awsHeaders['Authorization'] = sessionStorage.idToken;
 
-    var url = sessionStorage.awsPlusPlus + '/userskeys';
+    let url = sessionStorage.awsPlusPlus + '/userskeys';
 
     $.ajax({
         url: url,
@@ -29,8 +29,9 @@ $(document).ready(function() {
                 ]
             });
         },
-        error: function (e) {
-            alert("Error getting users and keys: " + JSON.stringify(e));
+        error: function () {
+            alert("Your session has timed out. Please return to the home page and login again.");
+            delete sessionStorage.idToken;
         }
     });
 });

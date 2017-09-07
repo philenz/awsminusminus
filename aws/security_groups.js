@@ -2,10 +2,10 @@ $(document).ready(function() {
 
     $("#waitMessage").show();
 
-    var awsHeaders = {};
+    let awsHeaders = {};
     awsHeaders['Authorization'] = sessionStorage.idToken;
 
-    var url = sessionStorage.awsPlusPlus + '/securitygroups';
+    let url = sessionStorage.awsPlusPlus + '/securitygroups';
 
     $.ajax({
         url: url,
@@ -28,8 +28,9 @@ $(document).ready(function() {
                 ]
             });
         },
-        error: function (e) {
-            alert("Error getting security groups: " + JSON.stringify(e));
+        error: function () {
+            alert("Your session has timed out. Please return to the home page and login again.");
+            delete sessionStorage.idToken;
         }
     });
 
