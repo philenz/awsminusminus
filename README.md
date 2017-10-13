@@ -12,6 +12,7 @@
 * Uses [AWS JavaScript SDK](https://sdk.amazonaws.com/builder/js/); [API Reference](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/top-level-namespace.html)
 * Test APIs using Postman --> [export API from API Gateway](https://www.getpostman.com/aws)
 * Early example of Postman API in etc directory
+* Detailed [tech docs](https://docs.google.com/document/d/15RVTy_AeP72Prrm95TconbeW_f7KfU8dC8ifU7lhLJA/edit#) (_currently private_) 
 
 ##### Cognito Set Up
 
