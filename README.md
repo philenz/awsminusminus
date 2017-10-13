@@ -8,7 +8,7 @@
 * CloudFront sits in front of the website
 * Uses [DataTables](https://datatables.net/)
 * Uses [Cognito User Pool](http://docs.aws.amazon.com/cognito/latest/developerguide/getting-started-with-cognito-user-pools.html)
-* Uses [Cognito SDK](https://github.com/aws/amazon-cognito-identity-js/); [Examples](http://docs.aws.amazon.com/cognito/latest/developerguide/using-amazon-cognito-user-identity-pools-javascript-examples.html)
+* Uses [Cognito SDK](https://github.com/aws/amazon-cognito-identity-js/); [Examples](http://docs.aws.amazon.com/cognito/latest/developerguide/using-amazon-cognito-user-identity-pools-javascript-examples.html); [Developer Resources](https://aws.amazon.com/cognito/dev-resources/)
 * Uses [AWS JavaScript SDK](https://sdk.amazonaws.com/builder/js/); [API Reference](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/top-level-namespace.html)
 * Test APIs using Postman --> [export API from API Gateway](https://www.getpostman.com/aws)
 * Early example of Postman API in etc directory
